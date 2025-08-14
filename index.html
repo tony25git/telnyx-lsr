@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telnyx Local Service Request System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #00c896 0%, #0086c0 100%);
+            color: white;
+            padding: 3rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00c896 0%, #0086c0 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #00c896 0%, #0086c0 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 200, 150, 0.3);
+        }
+
+        .info-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .info-section h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            padding: 1rem;
+            background: #f8f9ff;
+            border-radius: 5px;
+            border-left: 4px solid #00c896;
+        }
+
+        .info-item h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid #e1e5e9;
+            background: white;
+            margin-top: 3rem;
+        }
+
+        .tech-stack {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="Telnyx Logo.png" alt="Telnyx LLC Logo">
+            </div>
+            <h1>Local Service Request System</h1>
+            <p>Streamline your telecommunications port orders with our professional LSR management platform. Submit requests, track status, and manage number portability efficiently.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Submit LSR</h3>
+                <p>Create and submit Local Service Request forms with comprehensive validation, CSV upload support, and automatic PDF generation for carrier submissions.</p>
+                <a href="telnyx-lnp.html" class="btn">Submit New Request</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Track Status</h3>
+                <p>Search and monitor your LSR requests by PON number or phone number. Get real-time updates on port order progress and completion status.</p>
+                <a href="lsr-status.html" class="btn">Check Status</a>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>System Capabilities</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">
+                Professional telecommunications workflow management designed for carriers, resellers, and enterprise customers.
+            </p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>📊 Form Management</h4>
+                    <p>Complete LSR forms with administrative details, service location info, and phone number lists up to 1000+ entries.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>📄 PDF Generation</h4>
+                    <p>Automatic PDF creation for carrier submissions with properly formatted LSR documents following industry standards.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>📈 Status Tracking</h4>
+                    <p>Real-time search functionality to track port order status, dates, and carrier feedback with organized display.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>💾 CSV Support</h4>
+                    <p>Bulk phone number upload via CSV files for large port orders, with automatic validation and processing.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>📱 Responsive Design</h4>
+                    <p>Mobile-friendly interface that works seamlessly on desktop, tablet, and smartphone devices.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>🔒 Validation & Security</h4>
+                    <p>Comprehensive form validation, input sanitization, and secure data handling for sensitive carrier information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Getting Started</h2>
+            <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+                <h4 style="color: #00c896; margin-bottom: 0.5rem;">For New LSR Submissions:</h4>
+                <ol style="color: #666; margin-bottom: 1.5rem; padding-left: 1.5rem;">
+                    <li>Click "Submit New Request" to access the LSR form</li>
+                    <li>Fill in administrative information (PON, CCNA, NNSP, etc.)</li>
+                    <li>Enter service location details</li>
+                    <li>Add phone numbers via text input or CSV upload</li>
+                    <li>Review and submit - PDF will be automatically generated</li>
+                </ol>
+
+                <h4 style="color: #00c896; margin-bottom: 0.5rem;">For Status Tracking:</h4>
+                <ol style="color: #666; padding-left: 1.5rem;">
+                    <li>Click "Check Status" to access the tracking system</li>
+                    <li>Search by PON number or specific phone number</li>
+                    <li>View detailed status information and completion dates</li>
+                    <li>Track progress through carrier approval process</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Telnyx Local Service Request System. Professional telecommunications workflow management.</p>
+        <div class="tech-stack">
+            <p>Built with HTML5, CSS3, JavaScript | PDF Generation via jsPDF | Responsive Design</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading states for navigation links
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.href && !this.href.includes('#')) {
+                    this.style.opacity = '0.7';
+                    this.innerHTML = this.innerHTML.replace(/^/, '⏳ ');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
